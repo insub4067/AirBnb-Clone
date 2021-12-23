@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=' {% static "css/style.css" %} '>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <title>
+      {% block page_title %}{% endblock %}
+      | AirBnB</title>
+
+  </head>
+
+  <body class='text-gray-800 font-light'>
+
+    {% include 'partials/nav.html' %}
+
+    <div class="w-90vw mx-auto pt-24">
+      {% block content %}{% endblock %}
+    </div>
+    {% include 'partials/footer.html' %}
+  </body>
+
+</html>

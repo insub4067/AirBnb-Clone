@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block page_title%}
+Home
+{% endblock %}
+
+
+{% block content %}
+
+    <div class=" bg-gray-800  mx-auto h-50vh rounded-3xl bg-cover bg-center" style="background-image:url(https://images.unsplash.com/photo-1546874177-9e664107314e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1769&q=80)">
+    </div>
+
+    <div class="flex flex-wrap">
+      {% for room in rooms %}
+        {% include 'partials/room_card.html' with room=room %}
+      {% endfor %}
+    </div>
+  
+    <div class='border-t mt-5 mb-10'>
+      <div class='flex items-center justify-center text-base mt-12'>
+    
+        {% if page_obj.has_previous %}
+        <a href="/?page={{page_obj.previous_page_number}}" class='paginator'>
+          <i class="fas fa-chevron-left text-black"></i>
+        </a>
+        <a href="/?page=1" class='paginator'>1</a>
+        <span><i class="fas fa-ellipsis-h mx-3 text-xxs"></i></span>
+        <a href="/?page={{page_obj.number|add:'-1'}}" class='paginator'>{{page_obj.number|add:'-1'}}</a>
+        {% else %}
+        <span class='mx-3 h-8 w-8 flex items-center justify-center text-gray-400'>
+          <i class="fas fa-chevron-left"></i>
+        </span>        
+        {% endif %}
+
+        <span class='mx-3 bg-black rounded-full h-8 w-8 flex items-center justify-center text-white'>{{page_obj.number}}</span>
+
+        {% if page_obj.has_next %}
+        <a href="/?page={{page_obj.number|add:'1'}}" class='paginator'>{{page_obj.number|add:'1'}}</a>
+        <span><i class="fas fa-ellipsis-h mx-3 text-xxs"></i></span>
+        <a href="?page={{page_obj.paginator.num_pages}}" class='paginator'>{{page_obj.paginator.num_pages}}</a>
+        <a href="/?page={{page_obj.next_page_number}}" class='paginator'>
+          <i class="fas fa-chevron-right"></i>
+        </a>
+        {% else %}
+        <span class=' mx-3 h-8 w-8 flex items-center justify-center text-gray-400'>
+          <i class="fas fa-chevron-right"></i>
+        </span>        
+
+        {% endif %}
+      </div>
+    </div>
+
+
+
+
+
+{% endblock %}

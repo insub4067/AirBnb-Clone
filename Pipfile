@@ -1,0 +1,26 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "==2.2.5"
+django-admin = "*"
+pillow = "*"
+django-countries = "*"
+django-cities = "*"
+django-seed = "==0.2.2"
+django-dotenv = "*"
+requests = "*"
+django-extensions = "*"
+black = "*"
+
+[dev-packages]
+black = "*"
+flake8 = "*"
+
+[requires]
+python_version = "3.10"
+
+[pipenv]
+allow_prereleases = true

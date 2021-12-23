@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block page_title%}
+  SignUp
+{% endblock %}
+{%block content %}
+
+  <div class="
+    container
+    xl:w-1/2
+    lg:w-5/12
+    md:w-1/2
+    mx-auto
+    flex flex-col
+    items-center
+    border
+    rounded-2xl
+  ">
+    <div class="text-center text-lg font-bold my-5">회원가입</div>
+
+    <div class="w-full bg-gray-300 h-px"></div>
+
+    <div class="w-full p-6">
+
+      {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+          <span class="text-red-700 font-medium text-sm">{{error}}</span>
+        {% endfor %}
+      {% endif %}
+
+      <form method="POST" action="{% url 'users:signup' %}" class="w-full">
+        {% csrf_token %}
+        <input name="email" type="email" placeholder="이메일" class="register_input"/>
+        <span class="input_warning">{{form.email.errors}}</span>
+        <input name="password" type="password" placeholder="비밀번호" class="register_input"/>
+        <span class="input_warning">{{form.password.errors}}</span>
+        <input name="password1" type="password" placeholder="중복확인" class="register_input"/>
+        <span class="input_warning">{{form.password1.errors}}</span>
+        <button class="btn w-full bg-red-500 text-white">회원가입</button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock content %}

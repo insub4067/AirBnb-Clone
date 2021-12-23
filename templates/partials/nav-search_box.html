@@ -1,0 +1,15 @@
+<div class='flex items-center'>
+
+  <div class='transition ease-linear duration-200 border border-gray-400 shadow-md df:shadow-lg focus:outline-none font-normal pl-6 w-25vw py-2 flex items-center justify-between rounded-full'>
+
+    <form method="get" action="{% url 'rooms:search' %}">
+      <input type='text' name="city" placeholder='검색 하기' class='placeholder-gray-900 ml-2'>
+    </form>
+
+    <span class='flex items-center justify-center h-10 w-10 bg-AirBnB rounded-full mr-2'>
+      <i class="fas fa-search text-center text-white"></i>
+    </span>
+
+  </div>
+
+</div>

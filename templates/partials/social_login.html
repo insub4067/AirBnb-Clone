@@ -1,0 +1,20 @@
+<div class='flex flex-col w-full '>
+
+    <div class='my-3 w-full flex items-center'>
+        <div class='w-full  bg-gray-300 h-px'></div>
+        <span class='text-gray-700 text-center font-medium mx-3 w-16'>또는</span>
+        <div class='w-full  bg-gray-300 h-px'></div>
+    </div>
+
+    <a href="{% url 'users:github_login' %}" class='btn text-gray-700 border-3'>
+        <i class="fab fa-github fa-lg"></i>        
+        <span class='w-5/6'>Github으로 로그인하기</span>
+    </a>
+    
+    <a href="{% url 'users:kakao_login' %}" class='btn bg-yellow-400 text-yellow-900 border-none'>
+        <i class="fas fa-comment fa-lg" ></i>
+        <span class='w-5/6'>Kakaotalk으로 로그인하기</span> 
+    </a>
+
+
+</div>
