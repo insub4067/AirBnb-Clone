@@ -35,7 +35,28 @@
     @apply text-red-700 font-medium text-sm;
 }
 
+@keyframes messageFade{
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    5% {
+        opacity: 1;
+        transform: translateY(50px);
+    }    
+    95% {
+        opacity: 1;
+        transform: translateY(50px);
+    } 
+    100% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }       
+}
 
+.messages{
+    animation: messageFade 2s ease-in-out forwards;
+}
 
 
 
