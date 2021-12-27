@@ -5,10 +5,8 @@
     "python.linting.lintOnSave": true,
     "python.formatting.provider": "black",
     "editor.formatOnSave": true,
-    "python.linting.flake8Args": [
-        "--max-line-length-88"
-    ],
-    "python.pythonPath": "/Users/insub/.local/share/virtualenvs/airbnb-clone-vj_8uFr5/bin/python",  
+    "python.linting.flake8Args": ["--max-line-length-88"],
+    "python.pythonPath": "/Users/insub/.local/share/virtualenvs/airbnb-clone-vj_8uFr5/bin/python",
     "python.languageServer": "Pylance",
     "files.associations": {
         "**/*.html": "html",
@@ -17,16 +15,6 @@
         "**/requirements{/**,*}.{txt,in}": "pip-requirements"
     },
     "emmet.includeLanguages": {
-    "django-html": "html"
-    },
-    "unibeautify.enabled": true,
-    "[django-html]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "Glavin001.unibeautify-vscode"
-    },
-
-
-
-
+        "django-html": "html"
+    }
 }
-
