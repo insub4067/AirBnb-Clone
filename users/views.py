@@ -1,8 +1,9 @@
 import os
-from django.http import request
 import requests
+
+from django.views.generic.edit import UpdateView
 from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import get_object_or_404, redirect, reverse
+from django.shortcuts import redirect, reverse
 from django.urls import reverse_lazy
 from django.views.generic import FormView, DetailView
 from django.core.files.base import ContentFile
@@ -10,6 +11,8 @@ from django.contrib import messages
 
 from . import models as users_models
 from . import forms
+
+
 
 
 # Create your views here.
@@ -208,7 +211,17 @@ class UserProfileView(DetailView):
     template_name = "users/profile/profile.html"
     context_object_name = "user_obj"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["hello"] = 'hello'
-        return context
+    def dispatch(self, request, pk):
+        user_pk = request.user.pk
+        url_pk =  pk
+        if user_pk is url_pk:
+            return super(UserProfileView, self).dispatch(request)
+        messages.error(request, "유저 정보가 일치 하지 않습니다")
+        return redirect(reverse("core:home"))
+ 
+
+class UpdateProfileView(UpdateView):
+    model = users_models.User
+
+
+    
