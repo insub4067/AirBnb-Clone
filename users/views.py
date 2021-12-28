@@ -212,4 +212,3 @@ class UserProfileView(DetailView):
         context = super().get_context_data(**kwargs)
         context["hello"] = 'hello'
         return context
-
