@@ -1,0 +1,9 @@
+<div class="flex flex-col items-center">
+    {% if user_obj.avatar %}
+    <img src="{{user_obj.avatar.url}}" class="rounded-full h-40 shadow-2xl"/>
+    {% else %}
+    <img src="https://devshift.biz/wp-content/uploads/2017/04/profile-icon-png-898.png" 
+    class="rounded-full bg-gray-300 h-40 shadow-2xl">
+    {% endif %}
+    <a href="#" class="font-normal text-black underline my-5">사진 업데이트하기</a>
+</div>

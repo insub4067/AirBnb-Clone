@@ -1,0 +1,14 @@
+<div class="flex flex-col items-start">
+    <i class="far fa-check-circle text-3xl my-3"></i>     
+    <div class="font-bold text-black text-xl my-3">본인인증</div>   
+    <div class="text-lg text-black font-normal">본인 인증 배지를 통해 본인 인증을 마쳤다는 사실을 다른 사용자에게 보여줄 수 있습니다.</div>    
+    <a href="#" class="border border-black rounded-lg px-6 py-3 text-black text-lg font-normal my-3">배지 받기</a>
+    {% if user_obj.email_verify %}                
+    <div class="h-px bg-gray-400 my-3 w-full"></div>
+    <div class="text-2xl font-normal my-3">{{user_obj.first_name}} 인증 완료</div> 
+    <div class="text-black font-normal text-lg">
+        <i class="fas fa-check"></i>
+        이메일주소
+    </div>
+    {% endif %}
+</div>

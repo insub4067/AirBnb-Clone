@@ -1,8 +1,9 @@
 <ul class='flex items-center text-sm font-medium h-full'>
 
   {% if user.is_authenticated %}
-    <h3>Hello
-      {{user}}</h3>
+    <li class='nav_link'>
+      <a href="{% url 'users:profile' pk=user.id %}">Profile</a>
+    </li>      
     <li class='nav_link'>
       <a href="{% url 'users:logout' %}">Logout</a>
     </li>

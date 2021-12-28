@@ -2,12 +2,11 @@ import os
 from django.http import request
 import requests
 from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import redirect, reverse
+from django.shortcuts import get_object_or_404, redirect, reverse
 from django.urls import reverse_lazy
 from django.views.generic import FormView, DetailView
 from django.core.files.base import ContentFile
 from django.contrib import messages
-
 
 from . import models as users_models
 from . import forms
@@ -145,7 +144,6 @@ def kakao_login(request):
         f"https://kauth.kakao.com/oauth/authorize?client_id={REST_API_KEY}&redirect_uri={REDIRECT_URI}&response_type=code"
     )
 
-
 def kakao_callback(request):
     try:
         code = request.GET.get("code") 
@@ -204,7 +202,14 @@ def kakao_callback(request):
         messages.error(request, e)
         return redirect(reverse("users:login"))
 
-
-
 class UserProfileView(DetailView):
-    pass
+
+    model = users_models.User
+    template_name = "users/profile/profile.html"
+    context_object_name = "user_obj"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["hello"] = 'hello'
+        return context
+
