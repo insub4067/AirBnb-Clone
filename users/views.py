@@ -13,8 +13,6 @@ from . import models as users_models
 from . import forms
 
 
-
-
 # Create your views here.
 class LoginView(FormView):
     template_name = "users/login.html"
@@ -147,9 +145,10 @@ def kakao_login(request):
         f"https://kauth.kakao.com/oauth/authorize?client_id={REST_API_KEY}&redirect_uri={REDIRECT_URI}&response_type=code"
     )
 
+
 def kakao_callback(request):
     try:
-        code = request.GET.get("code") 
+        code = request.GET.get("code")
         grant_type = "authorization_code"
         client_id = os.environ.get("KAKAO_REST_API_KEY")
         redirect_uri = "http://127.0.0.1:8000/users/login/kakao/callback"
@@ -205,6 +204,7 @@ def kakao_callback(request):
         messages.error(request, e)
         return redirect(reverse("users:login"))
 
+
 class UserProfileView(DetailView):
 
     model = users_models.User
@@ -213,15 +213,23 @@ class UserProfileView(DetailView):
 
     def dispatch(self, request, pk):
         user_pk = request.user.pk
-        url_pk =  pk
+        url_pk = pk
         if user_pk is url_pk:
             return super(UserProfileView, self).dispatch(request)
         messages.error(request, "유저 정보가 일치 하지 않습니다")
         return redirect(reverse("core:home"))
- 
+
 
 class UpdateProfileView(UpdateView):
     model = users_models.User
+    template_name = "users/profile/update-profile.html"
+    fields = (
+        "bio",
+        "avatar",
+        "language",
+        "first_name",
+        "last_name",
+    )
 
-
-    
+    def get_object(self, queryset=None):
+        return self.request.user
