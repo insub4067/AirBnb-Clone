@@ -26,6 +26,7 @@ SECRET_KEY = "f7w)g-09v6e5f+*gt!ac3=eex3)^o=n(mg=1fwa$24&50ocu!n"
 DEBUG = True
 
 ALLOWED_HOSTS = [".vercel.app"]
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -94,10 +95,10 @@ WSGI_APPLICATION = "config.wsgi.application"
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-    }
+    # "default": {
+    #     "ENGINE": "django.db.backends.sqlite3",
+    #     "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+    # }
 }
 
 
